@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class About extends StatefulWidget {
@@ -13,6 +15,13 @@ class About extends StatefulWidget {
 
 class _AboutState extends State<About> {
   ScrollController controller = ScrollController();
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,12 +69,12 @@ class _AboutState extends State<About> {
 
                         child: MediaQuery.of(context).size.width < 992?
                         CircleAvatar(
-                          backgroundImage: NetworkImage('https://cdn.dribbble.com/userupload/9141615/file/original-6fc8ad6156f482aa84aa30b09185adfe.jpg?resize=1024x768'),
+                          backgroundImage: AssetImage('assets/images/diana.jpg'),
                           radius: MediaQuery.of(context).size.width *0.2,
                         ):Container(
                           height: 500,
                           child: Image(
-                            image: NetworkImage('https://cdn.dribbble.com/userupload/9141615/file/original-6fc8ad6156f482aa84aa30b09185adfe.jpg?resize=1024x768'),
+                            image: AssetImage('assets/images/diana.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -107,7 +116,7 @@ class _AboutState extends State<About> {
                               height: 25,
                             ),
                             AutoSizeText(
-                              "A computer science student is a dedicated individual passionate about technology constantly learning and exploring various aspects of the field they have a deep understanding of programming languages algorithms data structures computer networks databases artificial intelligence machine learning and more their analytical and problem-solving skills are exceptional they work on diverse projects and collaborate with teams to develop innovative solutions they are adaptable and stay updated with the latest trends in technology they envision a future where technology empowers society and transforms various industries.",
+                              "A computer science student is a dedicated individual passionate about technology constantly learning and exploring various aspects of the field they have a deep understanding of programming languages algorithms data structures computer networks databases artificial intelligence machine learning and more their analytical and problem-solving skills are exceptional they work on diverse projects and collaborate with teams to develop innovative solutions they are adaptable and stay updated with the latest trends in technology.",
                               maxLines: 5,
                               style: GoogleFonts.preahvihear(
                                 fontSize: 25,
@@ -150,7 +159,7 @@ class _AboutState extends State<About> {
                               children: [
                                 Cvcard(text1: "Github: ", text2: "diana582"),
                                 Spacer(),
-                                Cvcard(text1: "LinkedIn: ", text2: "dianadcruzt@gmail.com"),
+                                Cvcard(text1: "LinkedIn: ", text2: "diana-dcruz-286b69211/"),
                               ],
 
                             )
@@ -159,7 +168,7 @@ class _AboutState extends State<About> {
                               children: [
                                 Cvcard(text1: "Github: ", text2: "diana582"),
                                 Spacer(),
-                                Cvcard(text1: "LinkedIn: ", text2: "2hgdcjsdnkc"),
+                                Cvcard(text1: "LinkedIn: ", text2: "diana-dcruz-286b69211/"),
                               ],
                             ),
                             ),
@@ -168,18 +177,18 @@ class _AboutState extends State<About> {
                             child: MediaQuery.of(context).size.width > 800?
                             Row(
                               children: [
-                                Cvcard(text1: "Phone: ", text2: "diana582"),
+                                Cvcard(text1: "Phone: ", text2: "7356732344"),
                                 Spacer(),
-                                Cvcard(text1: "Age: ", text2: "dianadcruzt@gmail.com"),
+                                Cvcard(text1: "Age: ", text2: "21"),
                               ],
 
                             )
                             :
                             Column(
                               children: [
-                                Cvcard(text1: "Phone: ", text2: "diana582"),
+                                Cvcard(text1: "Phone: ", text2: "7356732344"),
                                 Spacer(),
-                                Cvcard(text1: "Age: ", text2: "2hgdcjsdnkc"),
+                                Cvcard(text1: "Age: ", text2: "21"),
                               ],
                             ),
                             ),
@@ -196,13 +205,21 @@ class _AboutState extends State<About> {
                                     color: Colors.black
                                   ),
                                   child: Center(
-                                    child: Text(
-                                      "Download CV",
-                                      style:  GoogleFonts.radley(
-                                fontSize: 16,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w400
-                               ),
+                                    child: GestureDetector(
+                                      onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PDFScreen()),
+            );
+          },
+                                      child: Text(
+                                        "Download CV",
+                                        style:  GoogleFonts.radley(
+                                                                    fontSize: 16,
+                                                                    color: Colors.white,
+                                                                    fontWeight: FontWeight.w400
+                                                                   ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -211,27 +228,47 @@ class _AboutState extends State<About> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(
-                                      Icons.brush_outlined,//github
-                                      color: Colors.black,
-                                      size: 18,
+                                    GestureDetector(
+                                      onTap: (){
+                                        _launchURL('https://github.com/diana582');
+                                      },
+                                      child: Image(
+                                      image: NetworkImage("https://cdn-icons-png.flaticon.com/128/3291/3291695.png"),
+                                                                       // color: Colors.black, // Color to apply to the image
+                                         width: 25,
+                                      height: 25,
+                                      ),
                                     ),
                                     SizedBox(
                                       width: 15,
                                     ),
-                                     Icon(
-                                      Icons.info,//linkedin
-                                      color: Colors.black,
-                                      size: 18,
-                                    ),
+                                     GestureDetector(
+                                      onTap: (){
+                                        _launchURL('https://www.linkedin.com/in/diana-dcruz-286b69211/');
+                                      },
+                                       child: Image(
+                                                                         image: NetworkImage("https://cdn-icons-png.flaticon.com/128/174/174857.png"),
+                                                                        // color: Colors.black, // Color to apply to the image
+                                         width: 25,
+                                                                         height: 25,
+                                                                         ),
+                                     ),
+
                                     SizedBox(
                                       width: 15,
                                     ),
-                                     Icon(
-                                      Icons.square_outlined,
-                                      color: Colors.black,//insta
-                                      size: 18,
+                                    GestureDetector(
+                                      onTap: (){
+                                        _launchURL('https://www.instagram.com/_dianadcruz_/');
+                                      },
+                                      child: Image(
+                                      image: NetworkImage("https://cdn-icons-png.flaticon.com/128/2111/2111463.png"),
+                                                                       // color: Colors.black, // Color to apply to the image
+                                         width: 25,
+                                      height: 25,
+                                      ),
                                     ),
+
                                     SizedBox(
                                       width: 15,
                                     ),
@@ -253,6 +290,8 @@ class _AboutState extends State<About> {
       ),
 
     );
+
+    
   }
 }
 class Cvcard extends StatefulWidget {
@@ -291,6 +330,22 @@ class _CvcardState extends State<Cvcard> {
           )
         ],
       ),
+    );
+  }
+}
+class PDFScreen extends StatelessWidget {
+ 
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+     backgroundColor: Color.fromARGB(255, 221, 127, 238),
+      body: 
+      
+           PDFView(
+              filePath: 'assets/sample.pdf', // Replace with your PDF URL or local file path
+            
+            ),
     );
   }
 }

@@ -77,7 +77,7 @@ class _ResumeState extends State<Resume> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 43,
+                      height: 20,
                     ),
                     Text(
                       "Check out my Resume",
@@ -99,7 +99,7 @@ class _ResumeState extends State<Resume> {
                    //   ),
                   //  ),
                     SizedBox(
-                      height: 80,
+                      height: 50,
                     ),
                     MediaQuery.of(context).size.width > 950?
                     Container(
