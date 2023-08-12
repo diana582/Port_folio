@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
+//import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
@@ -206,12 +206,12 @@ class _AboutState extends State<About> {
                                   ),
                                   child: Center(
                                     child: GestureDetector(
-                                      onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PDFScreen()),
-            );
-          },
+          //                             onTap: () {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(builder: (context) => PDFScreen()),
+          //   );
+          // },
                                       child: Text(
                                         "Download CV",
                                         style:  GoogleFonts.radley(
@@ -333,19 +333,19 @@ class _CvcardState extends State<Cvcard> {
     );
   }
 }
-class PDFScreen extends StatelessWidget {
+// class PDFScreen extends StatelessWidget {
  
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-     backgroundColor: Color.fromARGB(255, 221, 127, 238),
-      body: 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//      backgroundColor: Color.fromARGB(255, 221, 127, 238),
+//       body: 
       
-           PDFView(
-              filePath: 'assets/sample.pdf', // Replace with your PDF URL or local file path
+//            PDFView(
+//               filePath: 'assets/sample.pdf', // Replace with your PDF URL or local file path
             
-            ),
-    );
-  }
-}
+//             ),
+//     );
+//   }
+// }

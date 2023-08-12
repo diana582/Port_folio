@@ -32,9 +32,9 @@ class _ResumeState extends State<Resume> {
       sub2: "Percentage 95.4% /2020-2024",
     ),
     CustomCard(
-      head: "Secondary Education",
-      sub: "Placid Vidya Vihar sr. sec school",
-      sub2: "Percentage 95.4% /2020-2024",
+      head: "AWS Cloud Services",
+      sub: "ICT Academy of Kerala",
+      sub2: "Cognizant Academy ",
     ),
   ];
 
@@ -245,12 +245,12 @@ class _PercentItemState extends State<PercentItem> {
     return Container(
       child: Column(
         children: [
-          PercentCard(progress: 0.95, text: "C++/C",),
-          PercentCard(progress: 0.70, text: "Java",),
+          PercentCard(progress: 0.75, text: "C++/C",),
+          PercentCard(progress: 0.60, text: "Java",),
           PercentCard(progress: 0.80, text: "JavaScript",),
-          PercentCard(progress: 0.1, text: "Flutter",),
+          PercentCard(progress: 0.98, text: "Flutter",),
           PercentCard(progress: 0.95, text: "Dart",),
-          PercentCard(progress: 0.1, text: "SQL",),
+          PercentCard(progress: 0.9, text: "SQL",),
           PercentCard(progress: 0.50, text: "Django",),
           
           

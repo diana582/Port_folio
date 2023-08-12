@@ -23,7 +23,7 @@ class FirstPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 70,
+                height: 50,
               ),
               // First Row
             LayoutBuilder(
@@ -40,9 +40,9 @@ class FirstPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-              child: Text("I know I tend to\nmake it about me",
+              child: Text("Fearless spirit, boundless potential",
               style: GoogleFonts.vinaSans(
-                          fontSize: MediaQuery.of(context).size.width >= 700 ? 110 : 50,
+                          fontSize: MediaQuery.of(context).size.width >= 700 ? 105 : 50,
                           color: Color.fromARGB(255, 208, 206, 206),
                           fontWeight: FontWeight.w500
                         ),
@@ -179,7 +179,7 @@ class FirstPage extends StatelessWidget {
                     ),
                                  ),
                                  child: Text(
-                    'I am smart',
+                    'An Engineer',
                     style: GoogleFonts.inconsolata(
                             fontSize: 20,
                             color: Color.fromARGB(255, 148, 146, 146),
@@ -202,14 +202,14 @@ class FirstPage extends StatelessWidget {
                                  style: ElevatedButton.styleFrom(
                     primary: Colors.transparent, 
                     onPrimary: Colors.black,
-                    side: BorderSide(width: 2, color: Color.fromARGB(255, 148, 146, 146)),  
+                    side: BorderSide(width: 2, color: Color.fromARGB(255, 86, 86, 86)),  
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                       
                     ),
                                  ),
                                  child:  Text(
-                    'I do freelance',
+                    'A freelancer',
                     style: GoogleFonts.inconsolata(
                             fontSize: 20,
                             color: Color.fromARGB(255, 148, 146, 146),
@@ -233,7 +233,7 @@ class FirstPage extends StatelessWidget {
                                  style: ElevatedButton.styleFrom(
                      primary: Colors.transparent, 
                     onPrimary: Colors.black, 
-                    side: BorderSide(width: 2, color: Color.fromARGB(255, 148, 146, 146)), 
+                    side: BorderSide(width: 2, color: Color.fromARGB(255, 52, 51, 51)), 
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                       
